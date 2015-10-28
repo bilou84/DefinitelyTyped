@@ -27,7 +27,7 @@ interface LinearChartData {
 
 interface CircularChartData {
     value: number;
-    color: string;
+    color?: string;
     highlight?: string;
     label?: string;
 }
@@ -113,8 +113,9 @@ interface LinearInstance extends ChartInstance {
 interface CircularInstance extends ChartInstance {
     getSegmentsAtEvent: (event: Event) => {}[];
     update: () => void;
-    addData: (valuesArray: CircularChartData[], index: number) => void;
+    addData: (valuesArray: CircularChartData, index?: number) => void;
     removeData: (index: number) => void;
+    segments: Array<CircularChartData>;
 }
 
 interface LineChartOptions extends ChartOptions {
